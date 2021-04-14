@@ -57,11 +57,7 @@ def convert(network_pkl, output_file):
     for i in range(n_mapping):
         state_ros[f"style.{i+1}.weight"] = state_nv[f"mapping.fc{i}.weight"]
         state_ros[f"style.{i+1}.bias"] = state_nv[f"mapping.fc{i}.bias"]
-    for i in range(n_mapping, n_mapping+6):
-        print(i)
-        state_ros[f"style.{i+1}.weight"] = state_nv[f"mapping.fc0.weight"]
-        state_ros[f"style.{i+1}.bias"] = state_nv[f"mapping.fc0.bias"]
-        
+
     for i in range(int(n_layers)):
         if i > 0:
             for conv_level in range(2):
